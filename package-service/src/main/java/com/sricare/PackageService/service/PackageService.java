@@ -13,5 +13,7 @@ public interface PackageService {
     List<SriPackage> getAllPackages();
     List<SriPackage> getAllPackagesByType(PackageType type);
 
+    void activatePackage(long userId,long packageId);
+
     SriPackage getPackageById(Long id);
 }

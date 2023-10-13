@@ -21,6 +21,13 @@ public class SriPackageController {
         packageService.AddPackage(packageDTO);
     }
 
+    @PostMapping("/activate/{user_id}")
+    public void activatePachage(@PathVariable long user_id,
+            @RequestBody long package_id){
+        packageService.activatePackage(user_id,package_id);
+
+    }
+
     @GetMapping("/all")
     public List<SriPackage> getAllPackages(){
         return packageService.getAllPackages();
