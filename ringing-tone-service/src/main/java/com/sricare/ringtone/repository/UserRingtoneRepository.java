@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRingtoneRepository extends JpaRepository<UserRingtones,
         Long> {
+    UserRingtones findByUserId(Long userId);
 }

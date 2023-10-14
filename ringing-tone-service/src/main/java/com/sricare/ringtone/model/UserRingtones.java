@@ -15,7 +15,7 @@ public class UserRingtones {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="user_id")
+    @Column()
     private long userId;
 
     @ManyToOne
