@@ -21,6 +21,7 @@
         <module>ringing-tone-service</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>chat-service</module>
     </modules>
 
     <properties>
