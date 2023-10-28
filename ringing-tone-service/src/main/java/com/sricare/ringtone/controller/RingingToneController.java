@@ -19,6 +19,12 @@ public class RingingToneController {
         ringingToneService.saveRingingTone(ringingToneRequestDTO);
     }
 
+    @PostMapping("activate/{user_id}")
+    public void activateRingTone(@PathVariable Long user_id,
+            @RequestBody Long ringTone_id){
+        ringingToneService.activateRingtone(user_id,ringTone_id);
+    }
+
     @GetMapping("/{id}")
     public RingingTone getRingingToneById(@PathVariable("id") Long id){
         return ringingToneService.getRingingToneById(id);

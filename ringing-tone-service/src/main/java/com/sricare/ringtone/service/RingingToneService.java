@@ -10,5 +10,7 @@ public interface RingingToneService {
     void saveRingingTone(@ModelAttribute RingingToneRequestDTO ringingToneRequestDTO);
     RingingTone getRingingToneById(Long id);
 
+    void activateRingtone(long userId,long ringtoneID);
+
     List<RingingTone> getAllRingingTone();
 }
