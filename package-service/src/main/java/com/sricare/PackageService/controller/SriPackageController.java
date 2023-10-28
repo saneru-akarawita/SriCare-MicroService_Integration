@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/package")
+@RequestMapping("/api/v1/package")
 public class SriPackageController {
     private final PackageService packageService;
     @PostMapping("/add")

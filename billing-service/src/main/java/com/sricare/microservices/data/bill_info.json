@@ -1,0 +1,7 @@
+[
+  {"id":"1001","userid":"8001","status":"paid","period":"2023\/Sept\/01 - 2023\/Sept\/30","previous_due_amount":"1023.5","charges_for_period":"3241.780029296875","pay_before":"2023-10-15 00:00:00.000000"},
+  {"id":"1002","userid":"8004","status":"not-paid","period":"2023\/Sept\/01 - 2023\/Sept\/30","previous_due_amount":"103.5","charges_for_period":"4520.5","pay_before":"2023-10-15 00:00:00.000000"},
+  {"id":"1003","userid":"8003","status":"not-paid","period":"2023\/Sept\/01 - 2023\/Sept\/30","previous_due_amount":"10.329999923706055","charges_for_period":"2190.10009765625","pay_before":"2023-10-15 00:00:00.000000"},
+  {"id":"1004","userid":"8002","status":"paid","period":"2023\/Aug\/01 - 2023\/Aug\/31","previous_due_amount":"211.3000030517578","charges_for_period":"4321.5","pay_before":"2023-09-15 00:00:00.000000"},
+  {"id":"1005","userid":"8001","status":"paid","period":"2023\/Aug\/01 - 2023\/Aug\/31","previous_due_amount":"111.33999633789062","charges_for_period":"5412.330078125","pay_before":"2023-09-15 00:00:00.000000"}
+]

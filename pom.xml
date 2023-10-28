@@ -22,6 +22,8 @@
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>chat-service</module>
+        <module>notification-service</module>
+        <module>billing-service</module>
     </modules>
 
     <properties>
