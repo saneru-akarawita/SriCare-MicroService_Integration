@@ -31,7 +31,7 @@ public class RingingToneServiceImpl implements RingingToneService{
     }
 
     @Override
-    public void activateRingtone(long userId, long ringtoneID) {
+    public void activateRingtone(Long userId, Long ringtoneID) {
         Optional<RingingTone> ringingTone=
                 ringingToneRepository.findById(ringtoneID);
         if (ringingTone.isPresent()){
@@ -41,6 +41,18 @@ public class RingingToneServiceImpl implements RingingToneService{
                     .build();
             userRingtoneRepository.save(userRingtones);
         }
+    }
+
+    @Override
+    public void deactivateRingtone(Long ringtoneId) {
+        Optional<UserRingtones> userRingtones=
+                userRingtoneRepository.findById(ringtoneId);
+        userRingtones.ifPresent(userRingtoneRepository::delete);
+    }
+
+    @Override
+    public UserRingtones getActivatedRingTone(Long userId) {
+        return userRingtoneRepository.findByUserId(userId);
     }
 
     @Override
