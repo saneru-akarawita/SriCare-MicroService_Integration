@@ -103,7 +103,7 @@ public class AuthenticationService {
             return "Current Password is incorrect";
         }
 
-        if(!changePasswordRequestDto.getNewPassword().equals(changePasswordRequestDto.getConfirmPassword())) {
+        if(!changePasswordRequestDto.getNewPassword().equals(changePasswordRequestDto.getConfirmNewPassword())) {
             return "New Password and Confirm Password do not match";
         }
 

@@ -16,5 +16,5 @@ public class ChangePasswordRequestDto {
 
     private String newPassword;
 
-    private String confirmPassword;
+    private String confirmNewPassword;
 }
