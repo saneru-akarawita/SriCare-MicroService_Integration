@@ -6,10 +6,7 @@ import com.sricare.microservices.dto.ChangePasswordRequestDto;
 import com.sricare.microservices.dto.RegisterRequestDto;
 import com.sricare.microservices.service.AuthenticationService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -37,5 +34,11 @@ public class AuthenticationController {
             @RequestBody ChangePasswordRequestDto changePasswordRequestDto
             ) {
         return authenticationService.changePassword(changePasswordRequestDto);
+    }
+
+    @RequestMapping("/getUserById/{id}")
+    public Object getUserById(
+            @PathVariable String id) {
+        return authenticationService.getUserById(Long.valueOf(id));
     }
 }

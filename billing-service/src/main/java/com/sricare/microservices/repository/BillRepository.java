@@ -9,5 +9,9 @@ import java.util.List;
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Long> {
     List<Bill> findByUserIdAndStatus(Long userId, String status);
+
+    Object findAllByUserId(Long userId);
+
+    Object findAllByUserIdAndStatus(Long userId, String status);
 }
 

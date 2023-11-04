@@ -1,21 +1,16 @@
 package com.sricare.microservices.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import jakarta.persistence.*;
 import java.util.Date;
 
+@Data
 @Entity
 @Table(name = "billing_info")
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@NoArgsConstructor
+@Builder
 public class Bill {
 
     @Id
@@ -24,6 +19,9 @@ public class Bill {
 
     @Column(name = "userid")
     private Long userId;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "status")
     private String status;
@@ -40,5 +38,4 @@ public class Bill {
     @Column(name = "pay_before")
     private Date payBefore;
 
-    // Constructors, getters, and setters
 }

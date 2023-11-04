@@ -113,4 +113,8 @@ public class AuthenticationService {
 
         return "Password changed successfully";
     }
+
+    public Object getUserById(Long id) {
+        return userRepository.findById(Math.toIntExact(id)).orElseThrow();
+    }
 }
