@@ -5,6 +5,7 @@ import com.sricare.ringtone.model.RingingTone;
 import com.sricare.ringtone.model.UserRingtones;
 import com.sricare.ringtone.service.RingingToneService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public class RingingToneController {
         ringingToneService.saveRingingTone(ringingToneRequestDTO);
     }
 
-    @PostMapping("activate/{user_id}")
+    @PostMapping("activate/{user_id}/{ringTone_id}")
     public void activateRingTone(@PathVariable Long user_id,
-            @RequestBody Long ringTone_id){
+            @PathVariable Long ringTone_id){
         ringingToneService.activateRingtone(user_id,ringTone_id);
     }
 
@@ -43,7 +44,11 @@ public class RingingToneController {
     }
 
     @GetMapping("/all")
-    public List<RingingTone> getAllRingingTones(){
-        return ringingToneService.getAllRingingTone();
+    public ResponseEntity<List<RingingTone>> getAllRingingTones(){
+        if(!ringingToneService.getAllRingingTone().isEmpty()){
+            return ResponseEntity.ok(ringingToneService.getAllRingingTone());
+        }else {
+            return ResponseEntity.noContent().build();
+        }
     }
 }
