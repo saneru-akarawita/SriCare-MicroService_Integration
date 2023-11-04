@@ -6,6 +6,7 @@ import com.sricare.PackageService.model.PackageType;
 import com.sricare.PackageService.model.SriPackage;
 import com.sricare.PackageService.service.PackageService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,22 +22,33 @@ public class SriPackageController {
         packageService.AddPackage(packageDTO);
     }
 
-    @PostMapping("/activate/{user_id}")
+    @PostMapping("/activate/{user_id}/{package_id}")
     public void activatePachage(@PathVariable long user_id,
-            @RequestBody long package_id){
+            @PathVariable long package_id){
         packageService.activatePackage(user_id,package_id);
 
     }
 
     @GetMapping("/all")
-    public List<SriPackage> getAllPackages(){
-        return packageService.getAllPackages();
+    public ResponseEntity<List<SriPackage>> getAllPackages(){
+        if(!packageService.getAllPackages().isEmpty()){
+            return ResponseEntity.ok(packageService.getAllPackages());
+        }else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
     @GetMapping("/all/{type}")
-    public List<SriPackage> getAllPackagesByType(@PathVariable("type")
+    public  ResponseEntity<List<SriPackage>> getAllPackagesByType(@PathVariable("type")
             PackageType packageType){
-        return packageService.getAllPackagesByType(packageType);
+        List<SriPackage> packages=
+                packageService.getAllPackagesByType(packageType);
+        if(!packages.isEmpty()){
+            return ResponseEntity.ok(packages);
+        }else {
+            return ResponseEntity.noContent().build();
+        }
+
     }
     @GetMapping("/{id}")
     public Boolean getPackageById(@PathVariable("id") Long id)
