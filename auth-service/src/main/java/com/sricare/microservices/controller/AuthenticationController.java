@@ -2,6 +2,7 @@ package com.sricare.microservices.controller;
 
 import com.sricare.microservices.dto.AuthenticationRequestDto;
 import com.sricare.microservices.dto.AuthenticationResponseDto;
+import com.sricare.microservices.dto.ChangePasswordRequestDto;
 import com.sricare.microservices.dto.RegisterRequestDto;
 import com.sricare.microservices.service.AuthenticationService;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,12 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequestDto authenticationRequestDto
             ) {
         return authenticationService.authenticate(authenticationRequestDto);
+    }
+
+    @RequestMapping("/changePassword")
+    public String changePassword(
+            @RequestBody ChangePasswordRequestDto changePasswordRequestDto
+            ) {
+        return authenticationService.changePassword(changePasswordRequestDto);
     }
 }

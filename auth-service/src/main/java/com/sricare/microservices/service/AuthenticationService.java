@@ -2,6 +2,7 @@ package com.sricare.microservices.service;
 
 import com.sricare.microservices.dto.AuthenticationRequestDto;
 import com.sricare.microservices.dto.AuthenticationResponseDto;
+import com.sricare.microservices.dto.ChangePasswordRequestDto;
 import com.sricare.microservices.dto.RegisterRequestDto;
 import com.sricare.microservices.model.Role;
 import com.sricare.microservices.model.User;
@@ -92,5 +93,24 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .user(user)
                 .build();
+    }
+
+    public String changePassword(ChangePasswordRequestDto changePasswordRequestDto) {
+        var user = userRepository.findByEmail(changePasswordRequestDto.getEmail())
+                .orElseThrow();
+
+        if(!passwordEncoder.matches(changePasswordRequestDto.getCurrentPassword(), user.getPassword())) {
+            return "Current Password is incorrect";
+        }
+
+        if(!changePasswordRequestDto.getNewPassword().equals(changePasswordRequestDto.getConfirmPassword())) {
+            return "New Password and Confirm Password do not match";
+        }
+
+        user.setPassword(passwordEncoder.encode(changePasswordRequestDto.getNewPassword()));
+
+        userRepository.save(user);
+
+        return "Password changed successfully";
     }
 }
