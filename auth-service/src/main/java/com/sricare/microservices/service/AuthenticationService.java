@@ -82,15 +82,15 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
 
         // Get all packages from package service
-        boolean result = Boolean.TRUE.equals(webClientBuilder.build() .get()
-                .uri("http://package-service/api/v1/package/1")
-                .retrieve()
-                .bodyToMono(Boolean.class)
-                .block());
+//        boolean result = Boolean.TRUE.equals(webClientBuilder.build() .get()
+//                .uri("http://package-service/api/v1/package/1")
+//                .retrieve()
+//                .bodyToMono(Boolean.class)
+//                .block());
 
         return AuthenticationResponseDto.builder()
                 .token(jwtToken)
-                .result(Boolean.TRUE.equals(result))
+                .user(user)
                 .build();
     }
 }
